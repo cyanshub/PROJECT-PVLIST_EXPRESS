@@ -1,0 +1,270 @@
+/* reset樣式: start */
+html {
+  box-sizing: border-box; /*設定 body 計算模式*/
+  scroll-behavior: smooth; /* 設定網頁順暢滑動 */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* 清除瀏覽器預設 viewport */
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+li,
+menu {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  line-height: 1.5;
+  list-style: none;
+  text-align: justify;
+}
+
+table {
+  border: none;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: initial;
+}
+
+/* 清除超連結預設底線 */
+a {
+  text-decoration: none;
+}
+/* reset樣式: end */
+/* 設定專案色彩:start */
+:root {
+  --main-text-color: #212529;
+  --main-background-color: #f6f7f8;
+  --navbar-brand-text-color: #4592af;
+  --navbar-brand-hover-text-color: #226089;
+
+  --banner-background-img: url('./images/banner/banner-photo-1.jpg');
+  --search-bar-outer-background-color: #60849d; /* 改成淺藍 */
+  --search-bar-outer-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  --search-bar-inner-text-color: #141b39; /* 改成海軍藍 */
+  --btn-major-text-color: #fff;
+  --btn-major-background-color: #141b39; /* 改成海軍藍 */
+  --placeholder-text-color: #aaaaaa;
+
+  --form-control-focus-shadow: none;
+  --form-control-focus-border-color: #ced4da;
+
+  --card-hover-text-color: #141b39;
+  --card-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+  --movie-show-title-text-color: white;
+  --movie-show-title-text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  --text-shadow: 1px 1px black;
+}
+/* 設定專案色彩:end */
+/* 設定專案共用樣式: start */
+html,
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--main-text-color);
+}
+
+a {
+  color: var(--main-text-color);
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto 3rem auto;
+}
+
+.background-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* 設定專案共用樣式: end */
+/* 專案樣式: start */
+/* 設定 header 樣式 */
+header {
+  overflow: hidden;
+  height: 60px;
+}
+
+.navbar {
+  height: 100%;
+}
+
+.navbar .navbar-brand{
+  color: var(--navbar-brand-text-color)
+}
+
+.navbar .navbar-brand:hover {
+  color: var(--navbar-brand-hover-text-color);
+}
+
+
+/* 設定 banner 樣式 */
+.banner {
+  position: relative;
+  z-index: -10;
+  margin: -5px;
+  height: 300px;
+
+  /*容器要有尺寸才能正確投影*/
+  background-image: var(--banner-background-img);
+
+  filter:blur(3px);
+}
+
+
+/* 設定 search-bar 樣式 */
+.search-bar-outer {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px 30px;
+  margin-top: -260px;
+  border-radius: 8px;
+
+  background-color: var(--search-bar-outer-background-color);
+  box-shadow: var(--search-bar-outer-shadow);
+  -webkit-box-shadow: var(--search-bar-outer-shadow);
+  -moz-box-shadow: var(--search-bar-outer-shadow);
+}
+
+.search-bar-inner h4 {
+  color: var(--search-bar-inner-text-color);
+}
+
+.btn-major {
+  color: var(--btn-major-text-color);
+  background-color: var(--btn-major-background-color);
+}
+
+.form-control:focus{
+  box-shadow: none;
+  border-color: var(--form-control-focus-border-color);
+}
+  
+.form-control::placeholder {
+  color: var(--placeholder-text-color);
+}
+
+
+
+/* 設定圖片集樣式 */
+.wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  grid-gap:1.5rem;
+}
+
+.card {
+  height: 95%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card img {
+  height: 360px;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.card-title {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card:hover .card-title {
+  color: var(--card-hover-text-color);
+}
+
+
+/* 設定分頁樣式 */
+.movie-show-title {
+  position: relative;
+  top: -150px;
+  color: var(--movie-show-title-text-color);
+
+  text-align: center;
+  font-size: 3rem;
+  line-height: 2;
+
+  box-shadow: var(--movie-show-title-text-shadow);
+  -webkit-box-shadow: var(--movie-show-title-text-shadow);
+  -moz-box-shadow: var(--movie-show-title-text-shadow);
+  text-shadow: var(--text-shadow);
+}
+
+/* 將文字和圖片調成並排顯示 */
+.card-introduction {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+}
+
+.card-introduction-description p {
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+
+/* 導入媒體查詢 */
+@media screen and (max-width:992px) {
+  .card img {
+    height: 240px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .movie-show-title {
+    font-size: 2rem;
+  }
+  
+  /* 將文字和圖片調回垂直顯示 */
+  .card-introduction {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 0;
+  }
+
+  .card-introduction-description p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width:575px) {
+  .movie-show-title {
+    font-size: 1.5rem;
+  }
+
+  .card img {
+    height: auto;
+  }
+}
+/* 專案樣式: end */

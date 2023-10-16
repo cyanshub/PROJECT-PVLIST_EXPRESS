@@ -1,0 +1,48 @@
+{{!-- 撰寫搜尋架構 --}}
+<div class="container search-bar">
+  <div class="search-bar-outer">
+    <div class="search-bar-inner">
+      <form action="/search" id="search-form">
+        <h4 class="mb-2">尋找電影</h4>
+        <div class="input-group">
+          <input type="text" id="search-input" class="form-control" name="keyword" value="" placeholder="輸入電影、日期" aria-label="Movie Name">
+          <div class="input-group-append">
+            <button id="search-button" class="btn btn-major" type="submit">
+              搜尋
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{{!-- 應用 bootstrap 排列圖卡/改成用 grid 系統排版圖卡 --}}
+<div class="container mt-5">
+  <div class="wrapper">
+    {{!-- 使用 each 迴圈排列電影圖卡 --}}
+    {{#each movies}}
+    <a href="/movies/{{this.id}}" class="text-secondary">
+      <div class="card mb-3">
+        <img src="/{{this.image}}" alt="{{this.title}}" class="card-img-top">
+        <div class="card-body p-2">
+          <h6 class="card-title mb-1">{{this.title}}</h6>
+        </div>
+      </div>
+    </a>
+    {{/each}}
+  </div>
+</div>
+
+
+{{!-- 實作頁碼功能 --}}
+<ul id="paginator" class="pagination justify-content-center">
+  {{#each pages}}
+  <li class="page-item">
+    <a class="page-link" href="/page={{this}}" data-page="{{this}}">{{this}}</a>
+  </li>
+  {{/each}}
+</ul>
+
