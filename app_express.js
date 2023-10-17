@@ -100,7 +100,7 @@ app.get("/search", (req,res)=>{
   // 利用 .filter 陣列方法處理電影資料, 找出對應點選id的電影
   let fields_filter = fields.filter(field => 
     field.title.toLowerCase().includes(keyword.toLowerCase())||
-    field.release_date.toLowerCase().includes(keyword.toLowerCase()));
+    field.location.toLowerCase().includes(keyword.toLowerCase()));
 
   let pages_filter = [];
 
