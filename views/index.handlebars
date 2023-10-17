@@ -3,9 +3,9 @@
   <div class="search-bar-outer">
     <div class="search-bar-inner">
       <form action="/search" id="search-form">
-        <h4 class="mb-2">尋找電影</h4>
+        <h4 class="mb-2">尋找案場</h4>
         <div class="input-group">
-          <input type="text" id="search-input" class="form-control" name="keyword" value="" placeholder="輸入電影、日期" aria-label="Movie Name">
+          <input type="text" id="search-input" class="form-control" name="keyword" value="" placeholder="輸入案場名稱、地區、日期" aria-label="Movie Name">
           <div class="input-group-append">
             <button id="search-button" class="btn btn-major" type="submit">
               搜尋
@@ -22,9 +22,9 @@
 {{!-- 應用 bootstrap 排列圖卡/改成用 grid 系統排版圖卡 --}}
 <div class="container mt-5">
   <div class="wrapper">
-    {{!-- 使用 each 迴圈排列電影圖卡 --}}
-    {{#each movies}}
-    <a href="/movies/{{this.id}}" class="text-secondary">
+    {{!-- 使用 each 迴圈排列圖卡 --}}
+    {{#each fields}}
+    <a href="/fields/{{this.id}}" class="text-secondary">
       <div class="card mb-3">
         <img src="/{{this.image}}" alt="{{this.title}}" class="card-img-top">
         <div class="card-body p-2">

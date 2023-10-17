@@ -142,7 +142,7 @@ header {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px 30px;
-  margin-top: -260px;
+  margin-top: -90px;
   border-radius: 8px;
 
   background-color: var(--search-bar-outer-background-color);
@@ -186,7 +186,7 @@ header {
 }
 
 .card img {
-  height: 360px;
+  height: 200px;
   width: 100%;
   display: block;
   object-fit: cover;
@@ -205,7 +205,7 @@ header {
 
 
 /* 設定分頁樣式 */
-.movie-show-title {
+.field-show-title {
   position: relative;
   top: -150px;
   color: var(--movie-show-title-text-color);

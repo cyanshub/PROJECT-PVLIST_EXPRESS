@@ -16,7 +16,7 @@ app.use(express.static("public"));
 
 // 載入外部檔案: data.json
 const data_json = require("./public/data.json");
-const movies = data_json.movies;
+const fields = data_json.fields;
 
 
 // 實作頁碼功能
@@ -51,11 +51,11 @@ function renderPaginator(amount) {
 
 // 呼叫函式: 產生所需要的變數
 // 動態取得對應資料的網站頁數
-const pages = renderPaginator(movies.length);
+const pages = renderPaginator(fields.length);
 
 // 在有page將資料進行分段的概念後，預設顯示第一段的陣列資料 
 let page = 1;
-let movies_page = getItemsByPage(movies, page); // 顯示對應頁碼圖卡
+let fields_page = getItemsByPage(fields, page); // 顯示對應頁碼圖卡
 
 
 
@@ -63,10 +63,10 @@ let movies_page = getItemsByPage(movies, page); // 顯示對應頁碼圖卡
 // 使用.get方法設定首頁讀取路徑與渲染頁面
 // 首頁
 app.get("/", (req,res)=>{
-  console.log("載入電影資料的第一部:",movies[0]);
+  console.log("載入電影資料的第一部:",fields[0]);
 
   // 預設顯示第1頁 
-  res.render("index", { movies: movies_page, pages: pages})
+  res.render("index", { fields: fields_page, pages: pages})
 })
 
 
@@ -75,20 +75,20 @@ app.get("/page=:page", (req,res)=>{
   
   // 應用頁碼功能顯示對應頁碼圖卡
   page = Number(req.params.page);
-  movies_page = getItemsByPage(movies, page);
-  res.render("index", { movies: movies_page, pages: pages })
+  fields_page = getItemsByPage(fields, page);
+  res.render("index", { fields: fields_page, pages: pages })
 })
 
 
 // 分頁
-app.get("/movies/:movie_id", (req, res)=>{
-  const movie_id = Number(req.params.movie_id);
-  console.log("點選的電影 id:", movie_id);
+app.get("/fields/:field_id", (req, res)=>{
+  const field_id = Number(req.params.field_id);
+  console.log("點選的電影 id:", field_id);
 
   // 利用 .find 陣列方法處理電影資料, 找出對應點選id的電影
-  const movie_find = movies.find(movie => movie.id === movie_id);
+  const field_find = fields.find(field => field.id === field_id);
 
-  res.render("show", {movie:movie_find})
+  res.render("show", {field:field_find})
 })
 
 
@@ -98,25 +98,25 @@ app.get("/search", (req,res)=>{
   console.log("擷取輸入的關鍵字:",keyword);
 
   // 利用 .filter 陣列方法處理電影資料, 找出對應點選id的電影
-  let movies_filter = movies.filter(movie => 
-    movie.title.toLowerCase().includes(keyword.toLowerCase())||
-    movie.release_date.toLowerCase().includes(keyword.toLowerCase()));
+  let fields_filter = fields.filter(field => 
+    field.title.toLowerCase().includes(keyword.toLowerCase())||
+    field.release_date.toLowerCase().includes(keyword.toLowerCase()));
 
   let pages_filter = [];
 
 
   // 追加檢查: if 搜尋表單的輸入值為空白,渲染搜尋前的變數
   if (!keyword.length) {
-    movies_filter = movies_page;
+    fields_filter = fields_page;
     pages_filter = pages;
   }
 
   // 追加檢查: if 搜尋表單沒有結果
-  if (movies_filter.length === 0) {
+  if (fields_filter.length === 0) {
     console.log(`無法找到含關鍵字${keyword}的項目`);
   }
   
-  res.render("index", {movies:movies_filter,keyword:keyword,pages:pages_filter});
+  res.render("index", {fields:fields_filter,keyword:keyword,pages:pages_filter});
 })
 
 
