@@ -75,6 +75,9 @@ a {
   --movie-show-title-text-color: white;
   --movie-show-title-text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   --text-shadow: 1px 1px black;
+
+  --footer-text-color: white;
+  --footer-background-color: #4592af;
 }
 /* 設定專案色彩:end */
 /* 設定專案共用樣式: start */
@@ -162,7 +165,7 @@ header {
   /*容器要有尺寸才能正確投影*/
   background-image: var(--banner-background-img);
 
-  filter:blur(3px);
+  /* filter:blur(3px); */
 }
 
 
@@ -228,6 +231,21 @@ header {
 .card-introduction-description p {
   text-align: left;
   font-size: 1.5rem;
+}
+
+
+/* 註腳樣式 */
+footer {
+  margin-top: 60px;
+  background-color: var(--footer-background-color);
+  color: var(--footer-text-color);
+}
+
+footer p{
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
 }
 
 
