@@ -4,12 +4,28 @@
   <div class="col col-md-10 mx-auto">
     <div class="row card-introduction">
       <div class="card-introduction-description">
-        <p class="mb-3">Released date: {{field.release_date}}</p>
+        <p class="mb-1">
+          <span class="text-secondary">
+            <i class="fa-solid fa-calculator pr-2" aria-hidden="true"></i>
+            模組數量: 
+          </span>
+          {{field.total_modules}} 片
+        </p>
+        <p class="mb-1">
+          <a href={{field.google_map}} target="_blank" rel="noreferrer noopenner">
+            <span class="text-secondary">
+              <i class="fas fa-map-marker-alt pr-2" aria-hidden="true"></i>
+              案場地點:
+            </span>
+            {{field.location}}
+          </a>
+        </p>
+        
+        
         <p class="mb-5">{{field.description}}</p>
       </div>
       <div class="card-introduction-image">
-        <img src="/{{field.image}}" alt="{{field.title}}" class="rounded mb-5 w-100 d-block mx-auto"
-          style="max-width: 600px;">
+        <img src="/{{field.image}}" alt="{{field.title}}" class="rounded mb-5 w-100 d-block mx-auto">
       </div>
     </div>
   </div>
