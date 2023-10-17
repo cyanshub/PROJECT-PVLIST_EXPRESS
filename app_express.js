@@ -63,7 +63,7 @@ let fields_page = getItemsByPage(fields, page); // 顯示對應頁碼圖卡
 // 使用.get方法設定首頁讀取路徑與渲染頁面
 // 首頁
 app.get("/", (req,res)=>{
-  console.log("載入電影資料的第一部:",fields[0]);
+  console.log("載入案場資料的第一筆:",fields[0]);
 
   // 預設顯示第1頁 
   res.render("index", { fields: fields_page, pages: pages})

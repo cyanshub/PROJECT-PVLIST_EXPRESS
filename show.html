@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EXPRESS 電影清單</title>
+  <title>EXPRESS 太陽光電案場查訪</title>
   <!-- {{!-- 導入資源 --}} -->
   <!-- {{!-- 導入 bootstrap --}} -->
   <link rel="stylesheet" href="./public/stylesheets/bootstrap.css">
@@ -12,45 +13,89 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
 
+
   <!-- {{!-- 導入本地資源 --}} -->
   <link rel="stylesheet" href="./public/style.css">
 </head>
+
 <body>
-  <!-- Layouts -->
+  <!-- {{!-- Layouts --}} -->
   <header>
     <nav class="navbar navbar-light bg-light">
       <div class="container">
-        <a href="./" class="navbar-brand">
-          <img src="./public/images/logo/logo-photo-1.png" alt="我的電影清單" class="d-inline-block align-top" width="30" height="30"
-            alt="我的電影清單">我的電影清單
+        <!-- {{!-- LOGO --}} -->
+        <a href="/" class="navbar-brand">
+          <img src="/images/logo/logo-photo-1.png" alt="太陽光電案場查訪清單" class="d-inline-block align-top" width="30"
+            height="30" alt="太陽光電案場長訪清單">
+          <span class="navbar-brand-text">太陽光電案場查訪清單</span>
         </a>
+
+        <!-- {{!-- 搜尋列 --}} -->
+        <div class="search-bar">
+          <div class="search-bar-inner">
+            <form action="/search" id="search-form">
+              <div class="input-group">
+                <input type="text" id="search-input" class="form-control" name="keyword" value=""
+                  placeholder="輸入案場名稱、地區" aria-label="Movie Name">
+                <div class="input-group-append">
+                  <button id="search-button" class="btn btn-major" type="submit">
+                    搜尋
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </nav>
   </header>
   <div class="banner background-image"></div>
 
 
-  <!-- Partial templates -->
+
+  <!-- {{!-- Partial templates --}} -->
   <!-- {{!-- 點擊分頁 --}} -->
-  <div id="data-panel-movielist-show">
-    <h1 class="mb-1 movie-show-title">{{movie.title}}</h1>
+  <div id="data-panel-fieldlist-show">
+    <h1 class="mb-1 field-show-title">{{field.title}}</h1>
     <div class="container">
       <div class="col col-md-10 mx-auto">
         <div class="row card-introduction">
           <div class="card-introduction-description">
-            <p class="mb-3">Released date: {{movie.release_date}}</p>
-            <p class="mb-5">{{movie.description}}</p>
+            <p class="mb-1">
+              <span class="text-secondary">
+                <i class="fa-solid fa-calculator pr-2" aria-hidden="true"></i>
+                模組數量:
+              </span>
+              {{field.total_modules}}片
+            </p>
+            <p class="mb-1">
+              <a href={{field.google_map}} target="_blank" rel="noreferrer noopenner">
+                <span class="text-secondary">
+                  <i class="fas fa-map-marker-alt pr-2" aria-hidden="true"></i>
+                  案場地點:
+                </span>
+                {{field.location}}
+              </a>
+            </p>
+    
+    
+            <p class="mb-5">{{field.description}}</p>
           </div>
           <div class="card-introduction-image">
-            <img src="/{{movie.image}}" alt="{{movie.title}}" class="rounded mb-5 w-100 d-block mx-auto"
-              style="max-width: 600px;">
+            <img src="/{{field.image}}" alt="{{field.title}}" class="rounded mb-5 w-100 d-block mx-auto">
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  
 
+  <!-- {{!-- 撰寫註腳 --}} -->
+  <footer>
+    <p>太陽光電案場清單 &copy; 2023</p>
+  </footer>
 
 
 
