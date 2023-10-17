@@ -20,10 +20,30 @@
   <header>
     <nav class="navbar navbar-light bg-light">
       <div class="container">
-        <a href="" class="navbar-brand">
+        {{!-- LOGO --}}
+        <a href="/" class="navbar-brand">
           <img src="/images/logo/logo-photo-1.png" alt="太陽光電案場查訪清單" class="d-inline-block align-top" width="30" height="30"
-            alt="太陽光電案場長訪清單">太陽光電案場查訪清單
+            alt="太陽光電案場長訪清單">
+          <span class="navbar-brand-text">太陽光電案場查訪清單</span>
         </a>
+
+        {{!-- 搜尋列 --}}
+        <div class="search-bar">
+          <div class="search-bar-inner">
+            <form action="/search" id="search-form">
+              <div class="input-group">
+                <input type="text" id="search-input" class="form-control" name="keyword" value="" placeholder="輸入案場名稱、地區"
+                  aria-label="Movie Name">
+                <div class="input-group-append">
+                  <button id="search-button" class="btn btn-major" type="submit">
+                    搜尋
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </nav>
   </header>

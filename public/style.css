@@ -61,9 +61,7 @@ a {
   --navbar-brand-hover-text-color: #226089;
 
   --banner-background-img: url('./images/banner/banner-photo-1.jpg');
-  --search-bar-outer-background-color: #60849d; /* 改成淺藍 */
-  --search-bar-outer-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  --search-bar-inner-text-color: #141b39; /* 改成海軍藍 */
+
   --btn-major-text-color: #fff;
   --btn-major-background-color: #141b39; /* 改成海軍藍 */
   --placeholder-text-color: #aaaaaa;
@@ -123,6 +121,37 @@ header {
 }
 
 
+/* 設定 search-bar 樣式 */
+.search-bar {
+  width: 50%;
+  max-width: 500px;
+  border-radius: 8px;
+}
+
+
+/* 設定 header 排版 */
+.navbar .container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+
+
+.btn-major {
+  color: var(--btn-major-text-color);
+  background-color: var(--btn-major-background-color);
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--form-control-focus-border-color);
+}
+
+.form-control::placeholder {
+  color: var(--placeholder-text-color);
+}
+
+
 /* 設定 banner 樣式 */
 .banner {
   position: relative;
@@ -134,39 +163,6 @@ header {
   background-image: var(--banner-background-img);
 
   filter:blur(3px);
-}
-
-
-/* 設定 search-bar 樣式 */
-.search-bar-outer {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px 30px;
-  margin-top: -90px;
-  border-radius: 8px;
-
-  background-color: var(--search-bar-outer-background-color);
-  box-shadow: var(--search-bar-outer-shadow);
-  -webkit-box-shadow: var(--search-bar-outer-shadow);
-  -moz-box-shadow: var(--search-bar-outer-shadow);
-}
-
-.search-bar-inner h4 {
-  color: var(--search-bar-inner-text-color);
-}
-
-.btn-major {
-  color: var(--btn-major-text-color);
-  background-color: var(--btn-major-background-color);
-}
-
-.form-control:focus{
-  box-shadow: none;
-  border-color: var(--form-control-focus-border-color);
-}
-  
-.form-control::placeholder {
-  color: var(--placeholder-text-color);
 }
 
 
@@ -260,5 +256,15 @@ header {
   .card img {
     height: auto;
   }
+
+  /* 改變 header 顯示 */
+  .navbar-brand-text {
+    display: none;
+  }
+
+  .search-bar {
+    width: 85%;
+  }
+
 }
 /* 專案樣式: end */
