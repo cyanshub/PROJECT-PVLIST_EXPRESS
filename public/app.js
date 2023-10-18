@@ -119,7 +119,7 @@ if (!searchForm) { } else {
     if (!keyword.length) {
       renderPaginator(fields.length); // 動態取得對應資料的網站頁數
       renderFieldlist(fields_page); // 渲染搜尋前的電影
-      return alert("請輸入要搜尋的電影名稱或年份 EX: 2017")
+      // return alert("請輸入要搜尋的案場名稱或地點")
     }
 
 
