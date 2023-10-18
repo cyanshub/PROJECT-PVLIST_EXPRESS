@@ -174,7 +174,7 @@ header {
 .album-wrapper {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
   grid-gap:1.5rem;
 }
 
@@ -250,12 +250,6 @@ footer p{
 
 
 /* 導入媒體查詢 */
-@media screen and (max-width:992px) {
-  .card img {
-    height: 240px;
-  }
-}
-
 @media screen and (max-width:768px) {
   .movie-show-title {
     font-size: 2rem;
