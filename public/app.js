@@ -109,7 +109,7 @@ if (!paginator) { } else {
 // 設計 function
 // function: 監聽搜尋關鍵字篩選及重新渲染頁面
 if (!searchForm) { } else {
-  searchForm.addEventListener("submit", function onSearchFormSubmitted(event) {
+  searchForm.addEventListener("click", function onSearchFormSubmitted(event) {
     // 防止submit事件導致瀏覽器預設行為之重整頁面
     event.preventDefault();
     const keyword = searchInput.value.trim().toLowerCase();
@@ -203,6 +203,12 @@ if (!dataPanelShow) { } else { showfieldlist(field_find) }
 
 
 
+// 利用 classList 功能, 在首頁以外的頁面隱藏搜尋列
+if (!dataPanel) {
+  document.querySelector(".search-bar").classList.add("d-none");
+} else {
+  document.querySelector(".search-bar").classList.remove("d-none");
+}
 
 
 
